@@ -6,6 +6,7 @@ import (
 	"backend-golang/models"
 	"backend-golang/structs"
 	"github.com/gin-gonic/gin"
+	"golang.org/x/crypto/bcrypt"
 	"net/http"
 )
 
@@ -34,7 +35,16 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	// Check password
+	// Bandingkan password yang dimasukkan dengan password yang sudah di-hash di database
+	// Jika tidak cocok, kirimkan respons error Unauthorized
+	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.Password)); err != nil {
+		c.JSON(http.StatusUnauthorized, structs.ErrorResponse{
+			Success: false,
+			Message: "Invalid Password",
+			Error:   helpers.TranslateErrorMessage(err),
+		})
+		return
+	}
 
 	// If login is success
 	token := helpers.GenerateToken(user.Username)
