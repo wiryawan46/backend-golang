@@ -36,8 +36,5 @@ Library powerful untuk manajemen *fetching* data dari API di sisi **React**, mem
 
 ---
 
-## ✨ Harapan
-
-Semoga dengan hadirnya buku ini dapat membantu teman-teman menambah wawasan dan keterampilan untuk menjadi seorang **FullStack Developer modern** yang siap membangun aplikasi dari *backend* hingga *frontend* dengan *stack* yang solid dan efisien.
-
-Terima kasih 🙏
+Frontend project ada disni :
+https://github.com/wiryawan46/frontend-react-ts
