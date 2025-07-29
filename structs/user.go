@@ -26,6 +26,7 @@ type UserUpdateReq struct {
 }
 
 type UserLoginReq struct {
+	// Identifier can be either username or email
 	Username string `json:"username" binding:"required"`
 	Password string `json:"password" binding:"required"`
 }

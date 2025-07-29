@@ -25,11 +25,11 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	// Find user by username
-	if err := database.DB.Where("username = ?", req.Username).First(&user).Error; err != nil {
+	// Find user by username or email
+	if err := database.DB.Where("username = ? OR email = ?", req.Username, req.Username).First(&user).Error; err != nil {
 		c.JSON(http.StatusUnauthorized, structs.ErrorResponse{
 			Success: false,
-			Message: "Invalid username",
+			Message: "Invalid username or email",
 			Error:   helpers.TranslateErrorMessage(err),
 		})
 		return
