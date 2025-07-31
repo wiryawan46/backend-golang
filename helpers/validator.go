@@ -11,8 +11,14 @@ func TranslateErrorMessage(err error) map[string]string {
 	// Membuat map untuk menyimpan pesan kesalahan
 	errMap := make(map[string]string)
 
-	// Handlign validasi error
 	var validationErrors validator.ValidationErrors
+	// Handle non-validation errors
+	if err != nil && !errors.As(err, &validationErrors) {
+		errMap["Error"] = err.Error()
+		return errMap
+	}
+
+	// Handlign validasi error
 	if errors.As(err, &validationErrors) {
 		for _, err := range validationErrors {
 			field := err.Field()
