@@ -37,5 +37,6 @@ Library powerful untuk manajemen *fetching* data dari API di sisi **React**, mem
 ---
 
 Frontend project ada disni :
-https://github.com/wiryawan46/frontend-react-ts --> untuk frontend dengan React
-https://github.com/wiryawan46/front-vue-ts --> untuk frontend dengan Vue
+
+- https://github.com/wiryawan46/frontend-react-ts --> untuk frontend dengan React
+- https://github.com/wiryawan46/front-vue-ts --> untuk frontend dengan Vue
